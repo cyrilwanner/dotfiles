@@ -14,6 +14,10 @@ if [ "$(uname)" = "Darwin" ]; then
     CONFIG="$HOME/Library/Application Support/Code/User/"
 fi
 
+if [ ! -d "$CONFIG" ]; then
+    exit 0
+fi
+
 # link settings
 ln -sf "$HOME/.dotfiles/vscode/settings.json" "$CONFIG/settings.json"
 ln -sf "$HOME/.dotfiles/vscode/keybindings.json" "$CONFIG/keybindings.json"
