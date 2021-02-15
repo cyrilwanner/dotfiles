@@ -26,6 +26,10 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.labelFormat": "short",
 
+    "dotfiles.installCommand": "~/.dotfiles/install.sh",
+    "dotfiles.repository": "cyrilwanner/dotfiles",
+    "dotfiles.targetPath": "~/.dotfiles",
+
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
     "terminal.external.osxExec": "iTerm.app",
