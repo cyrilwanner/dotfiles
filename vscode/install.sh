@@ -9,9 +9,9 @@ if ! which code &> /dev/null; then
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
-CONFIG="$HOME/.config/Code/User/"
+CONFIG="$HOME/.config/Code/User"
 if [ "$(uname)" = "Darwin" ]; then
-    CONFIG="$HOME/Library/Application Support/Code/User/"
+    CONFIG="$HOME/Library/Application Support/Code/User"
 fi
 
 if [ ! -d "$CONFIG" ]; then
