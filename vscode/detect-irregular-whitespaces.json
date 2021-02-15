@@ -1,0 +1,25 @@
+{
+  "mode": "all",
+  "autoStart": true,
+  "refreshRate": 100,
+  "elements": [
+    {
+      "name": "space",
+      "enabled": true,
+      "pattern": "(\u0085|\u00A0|\ufeff|\u00a0|\u1680|\u180e|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200a|\u200b|\u202f|\u205f|\u3000|\u2028|\u2029)",
+      "style": {
+        "borderWidth": "1px",
+        "borderRadius": "2px",
+        "borderStyle": "solid",
+        "light": {
+          "backgroundColor": "rgba(212, 0, 0, 0.3)",
+          "borderColor": "rgba(212, 0, 0, 0.4)"
+        },
+        "dark": {
+          "backgroundColor": "rgba(212, 0, 0, 0.3)",
+          "borderColor": "rgba(212, 0, 0, 0.4)"
+        }
+      }
+    }
+  ]
+}

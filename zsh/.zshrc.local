@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# mac setup
+if [ -d "$HOME/.setup" ]; then
+    export PATH="$HOME/.setup/commands:$PATH"
+fi

@@ -1,0 +1,91 @@
+#!/bin/bash
+
+function git-pull-origin() {
+    branch="$1"
+    if [ ! -z "$1" ] && [[ "$1" != -* ]]; then
+        shift
+    else
+        branch=`git rev-parse --abbrev-ref HEAD`
+    fi
+
+    if [ ! -z "$branch" ]; then
+        git pull origin $branch "$@"
+    fi
+}
+
+function git-push-origin() {
+    branch="$1"
+    if [ ! -z "$1" ] && [[ "$1" != -* ]]; then
+        shift
+    else
+        branch=`git rev-parse --abbrev-ref HEAD`
+    fi
+
+    if [ ! -z "$branch" ]; then
+        git push origin $branch "$@"
+    fi
+}
+
+function aws-profile() {
+    if [[ ! -z "$1" ]]; then
+        if [[ "$1" == "default" ]]; then
+            unset AWS_PROFILE
+        else
+            export AWS_PROFILE="$1"
+        fi
+    fi
+
+    echo "Current AWS Profile: ${AWS_PROFILE:-default}"
+}
+
+function docker-exec() {
+    if [[ $PWD == $HOME/Development/web* ]]; then
+        DIR=${PWD#"$HOME/Development/web"}
+        docker exec -it web bash -c "cd /var/www$DIR; eval bash"
+    else
+        docker exec -it web bash
+    fi
+}
+
+function git-diff() {
+    if [ -z "$1" ]; then
+        git diff -- . ':!*package-lock.json' ':!*composer.lock'
+    else
+        git diff $@
+    fi
+}
+
+# git
+alias gs='git status'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias ga='git add'
+alias gd='git-diff'
+alias glo='git-pull-origin'
+alias gpo='git-push-origin'
+alias go='open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
+
+# npm
+alias n='npm run'
+alias nd='npm run dev'
+alias nb='npm run build'
+alias ns='npm start'
+alias nbs='npm run build && npm start'
+alias nt='npm test'
+
+# docker
+alias dcu='(cd ~/Development && docker-compose up -d)'
+alias dcs='(cd ~/Development && docker-compose stop)'
+alias de='docker-exec'
+alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker_clean_containers='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+alias docker_clean='docker_clean_containers && docker_clean_images'
+
+# vs code
+if [ ! $(command -v code) ] && [ -d "/Applications/Visual Studio Code.app" ]; then
+    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+fi
+
+# misc
+alias ll='ls -la'
+alias awsp='aws-profile'
