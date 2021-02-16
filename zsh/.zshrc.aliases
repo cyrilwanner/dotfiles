@@ -82,7 +82,7 @@ alias docker_clean_containers='docker rm $(docker ps --filter=status=exited --fi
 alias docker_clean='docker_clean_containers && docker_clean_images'
 
 # vs code
-if [ ! $(command -v code) ] && [ -d "/Applications/Visual Studio Code.app" ]; then
+if [[ ! $(command -v code) ]] && [[ -d "/Applications/Visual Studio Code.app" ]]; then
     export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
