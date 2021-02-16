@@ -9,6 +9,8 @@ if ! which code &> /dev/null; then
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
 CONFIG="$HOME/.config/Code/User"
 if [ "$(uname)" = "Darwin" ]; then
     CONFIG="$HOME/Library/Application Support/Code/User"
@@ -19,8 +21,8 @@ if [ ! -d "$CONFIG" ]; then
 fi
 
 # link settings
-ln -sf "$HOME/.dotfiles/vscode/settings.json" "$CONFIG/settings.json"
-ln -sf "$HOME/.dotfiles/vscode/keybindings.json" "$CONFIG/keybindings.json"
+ln -sf "$DIR/settings.json" "$CONFIG/settings.json"
+ln -sf "$DIR/keybindings.json" "$CONFIG/keybindings.json"
 
 # install util extensions
 code --install-extension davidhouchin.whitespace-plus
@@ -44,5 +46,5 @@ code --install-extension pkief.material-icon-theme
 # link plugin configs
 for WHITESPACE_PLUGIN in `find $HOME/.vscode/extensions/davidhouchin.whitespace-plus* -type d`
 do
-    ln -sf "$HOME/.dotfiles/vscode/detect-irregular-whitespaces.json" "$WHITESPACE_PLUGIN/config.json"
+    ln -sf "$DIR/detect-irregular-whitespaces.json" "$WHITESPACE_PLUGIN/config.json"
 done

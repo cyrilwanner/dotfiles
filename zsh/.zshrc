@@ -114,19 +114,24 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+DOTFILES="$HOME/.dotfiles"
+if [ ! -d "$DOTFILES" ] && [ -d "$HOME/dotfiles" ]; then
+    DOTFILES="$HOME/dotfiles"
+fi
+
 # load aliases
-. "$HOME/.dotfiles/zsh/.zshrc.aliases"
+. "$DOTFILES/zsh/.zshrc.aliases"
 
 # load nvm
 if [ -d "$HOME/.nvm" ]; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    . "$HOME/.dotfiles/nvm/auto-use.sh" # automatically use the correct node version when switching directories
+    . "$DOTFILES/nvm/auto-use.sh" # automatically use the correct node version when switching directories
 fi
 
 # load local .zshrc if it exists
 [ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$HOME/.dotfiles/zsh/.p10k.zsh" ]] || source "$HOME/.dotfiles/zsh/.p10k.zsh"
+[[ ! -f "$DOTFILES/zsh/.p10k.zsh" ]] || source "$HOME/.dotfiles/zsh/.p10k.zsh"
