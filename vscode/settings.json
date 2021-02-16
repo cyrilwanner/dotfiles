@@ -67,5 +67,7 @@
     "gitlens.currentLine.enabled": false,
     "gitlens.mode.active": "zen",
     "gitlens.views.compare.location": "scm",
-    "gitlens.views.search.location": "scm"
+    "gitlens.views.search.location": "scm",
+    "customizeUI.titleBar": "inline",
+    "customizeUI.activityBar": "wide"
 }

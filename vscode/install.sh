@@ -44,6 +44,11 @@ code --install-extension bierner.markdown-yaml-preamble
 code --install-extension github.github-vscode-theme
 code --install-extension pkief.material-icon-theme
 
+# mac specific extensions
+if [ "$(uname)" = "Darwin" ]; then
+    code --install-extension iocave.customize-ui
+fi
+
 # link plugin configs
 for WHITESPACE_PLUGIN in `find $HOME/.vscode/extensions/davidhouchin.whitespace-plus* -type d`
 do

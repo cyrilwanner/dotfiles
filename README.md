@@ -26,4 +26,5 @@ Restart iTerm after applying the config.
 
 ### VS Code
 
-Install the `Dank Mono` font.
+* Install the `Dank Mono` font.
+* Relaunch VS Code and run the command `Enable Monkey Patch`.
