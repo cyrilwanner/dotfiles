@@ -122,6 +122,12 @@ fi
 # load aliases
 . "$DOTFILES/zsh/.zshrc.aliases"
 
+# load local .zshrc if it exists
+[ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f "$DOTFILES/zsh/.p10k.zsh" ]] || source "$DOTFILES/zsh/.p10k.zsh"
+
 # load nvm
 if [ -d "$HOME/.nvm" ]; then
     export NVM_DIR="$HOME/.nvm"
@@ -130,8 +136,4 @@ if [ -d "$HOME/.nvm" ]; then
     . "$DOTFILES/nvm/auto-use.sh" # automatically use the correct node version when switching directories
 fi
 
-# load local .zshrc if it exists
-[ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$DOTFILES/zsh/.p10k.zsh" ]] || source "$DOTFILES/zsh/.p10k.zsh"
+ZSH_LOADED=1

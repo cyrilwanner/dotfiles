@@ -9,13 +9,25 @@ load-nvmrc() {
     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
     if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
+      if [ $ZSH_LOADED ]; then
+        nvm install
+      else
+        nvm install > /dev/null
+      fi
     elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
+      if [ $ZSH_LOADED ]; then
+        nvm use
+      else
+        nvm use > /dev/null
+      fi
     fi
   elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
+    if [ $ZSH_LOADED ]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    else
+      nvm use default > /dev/null
+    fi
   fi
 }
 add-zsh-hook chpwd load-nvmrc
