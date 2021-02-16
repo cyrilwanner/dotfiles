@@ -28,6 +28,7 @@ ln -sf "$DIR/keybindings.json" "$CONFIG/keybindings.json"
 code --install-extension davidhouchin.whitespace-plus
 code --install-extension eamodio.gitlens
 code --install-extension editorconfig.editorconfig
+code --install-extension github.codespaces
 code --install-extension mikestead.dotenv
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode-remote.remote-containers
