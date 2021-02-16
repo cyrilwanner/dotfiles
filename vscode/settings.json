@@ -32,8 +32,12 @@
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
+
     "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+
     "window.titleBarStyle": "native",
+
     "git.autofetch": true,
 
     // languages
