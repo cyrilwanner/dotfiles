@@ -41,6 +41,7 @@
     "window.titleBarStyle": "native",
 
     "git.autofetch": true,
+    "git.enableCommitSigning": true,
 
     // languages
     "css.lint.duplicateProperties": "warning",
