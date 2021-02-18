@@ -4,3 +4,10 @@
 if [ -d "$HOME/.setup" ]; then
     export PATH="$HOME/.setup/commands:$PATH"
 fi
+
+# codespaces setup
+if [ "$CODESPACES" = "true" ]; then
+    if [ "$NPM_AUTH_TOKEN" ] && [ ! -f "$HOME/.npmrc" ]; then
+        echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
+    fi
+fi
