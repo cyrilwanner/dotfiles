@@ -63,7 +63,7 @@ alias ga='git add'
 alias gd='git-diff'
 alias glo='git-pull-origin'
 alias gpo='git-push-origin'
-alias go='open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
+alias gopen='open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
 
 # npm
 alias n='npm run'
